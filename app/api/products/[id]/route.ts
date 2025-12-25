@@ -1,24 +1,23 @@
+import { NextRequest } from "next/server";
 import {connect} from "@/lib/db";
 import Product from "@/models/Product";
 
 export async function GET(
-    req:Request,
-    {params}:{params:{id:string}}
+  request: NextRequest,
+  context: { params: Promise<{ id: string }> }
 ) {
-    const {id} = await params;
-    
-    await connect();
+  const { id } = await context.params;
 
+  await connect();
 
-    const product = await Product.findById(id);
+  const product = await Product.findById(id);
 
-    if(!product){
-        return Response.json({
-            error:"Product not found"
-        }, {
-            status:404
-        });
-    }
+  if (!product) {
+    return new Response(
+      JSON.stringify({ error: "Product not found" }),
+      { status: 404 }
+    );
+  }
 
-    return Response.json({product})
+  return Response.json({ product });
 }
