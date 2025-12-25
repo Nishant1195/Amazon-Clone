@@ -47,11 +47,10 @@ export default function Header(){
                 </div>
 
                 <div className="flex items-center gap-6 text-xs">
-                    <div className="hover:border hover:border-white rounded px-2 py-1 cursor-pointer transition-all">
+                    <Link href="/login" className="hover:border hover:border-white rounded px-2 py-1 cursor-pointer transition-all">
                         <p className="text-gray-300">Hello, sign in</p>
                         <p className="font-bold text-sm">Account & Lists</p>
-                    </div>
-
+                    </Link>
                     <Link href="/orders" className="hover:border hover:border-white rounded px-2 py-1 transition-all">
                         <p className="text-gray-300">Returns</p>
                         <p className="font-bold text-sm">& Orders</p>
