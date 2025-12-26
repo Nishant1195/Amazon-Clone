@@ -2,6 +2,7 @@ import "./globals.css";
 import Script from "next/script";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { Toaster } from "react-hot-toast";
 
 export default function RootLayout({
   children,
@@ -20,6 +21,7 @@ export default function RootLayout({
         <Header />
          <main className="flex-1">
           {children}
+           <Toaster position="top-right" />
         </main>
         <Footer />
       </body>
