@@ -8,7 +8,7 @@ export async function GET(req: Request) {
     const code = searchParams.get("code");
 
     if(!code){
-        return NextResponse.redirect("http://localhost:3000/login");
+        return NextResponse.redirect("/login");
     }
 
     const tokenRes = await fetch("https://oauth2.googleapis.com/token", {
@@ -56,7 +56,7 @@ export async function GET(req: Request) {
         {expiresIn:"7d"}
     );
 
-    const response = NextResponse.redirect("http://localhost:3000");
+    const response = NextResponse.redirect("/");
     response.cookies.set("token", token, {
         httpOnly: true,
         secure:false,
