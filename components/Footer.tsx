@@ -1,3 +1,5 @@
+"use client";
+
 export default function Footer() {
   return (
     <footer className="mt-auto text-sm text-gray-700 bg-gray-50">
@@ -14,50 +16,37 @@ export default function Footer() {
       <div className="bg-gray-800 text-white px-6 sm:px-10 md:px-16 py-10">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
           
-          {/* COLUMN 1 */}
-          <div className="text-center sm:text-left">
-            <h4 className="font-bold mb-3 text-base">Get to Know Us</h4>
-            <ul className="space-y-2 text-gray-300">
-              <li className="hover:text-white hover:underline cursor-pointer">About Us</li>
-              <li className="hover:text-white hover:underline cursor-pointer">Careers</li>
-              <li className="hover:text-white hover:underline cursor-pointer">Press Releases</li>
-              <li className="hover:text-white hover:underline cursor-pointer">Amazon Science</li>
-            </ul>
-          </div>
-
-          {/* COLUMN 2 */}
-          <div className="text-center sm:text-left">
-            <h4 className="font-bold mb-3 text-base">Make Money with Us</h4>
-            <ul className="space-y-2 text-gray-300">
-              <li className="hover:text-white hover:underline cursor-pointer">Sell on Amazon</li>
-              <li className="hover:text-white hover:underline cursor-pointer">Become an Affiliate</li>
-              <li className="hover:text-white hover:underline cursor-pointer">Advertise Your Products</li>
-              <li className="hover:text-white hover:underline cursor-pointer">Self-Publish with Us</li>
-            </ul>
-          </div>
-
-          {/* COLUMN 3 */}
-          <div className="text-center sm:text-left">
-            <h4 className="font-bold mb-3 text-base">Payment Products</h4>
-            <ul className="space-y-2 text-gray-300">
-              <li className="hover:text-white hover:underline cursor-pointer">Amazon Business Card</li>
-              <li className="hover:text-white hover:underline cursor-pointer">Shop with Points</li>
-              <li className="hover:text-white hover:underline cursor-pointer">Reload Your Balance</li>
-              <li className="hover:text-white hover:underline cursor-pointer">Amazon Currency Converter</li>
-            </ul>
-          </div>
-
-          {/* COLUMN 4 */}
-          <div className="text-center sm:text-left">
-            <h4 className="font-bold mb-3 text-base">Let Us Help You</h4>
-            <ul className="space-y-2 text-gray-300">
-              <li className="hover:text-white hover:underline cursor-pointer">Your Account</li>
-              <li className="hover:text-white hover:underline cursor-pointer">Your Orders</li>
-              <li className="hover:text-white hover:underline cursor-pointer">Shipping Rates & Policies</li>
-              <li className="hover:text-white hover:underline cursor-pointer">Returns & Replacements</li>
-            </ul>
-          </div>
-
+          <FooterColumn
+            title="Get to Know Us"
+            links={["About Us", "Careers", "Press Releases", "Amazon Science"]}
+          />
+          <FooterColumn
+            title="Make Money with Us"
+            links={[
+              "Sell on Amazon",
+              "Become an Affiliate",
+              "Advertise Your Products",
+              "Self-Publish with Us",
+            ]}
+          />
+          <FooterColumn
+            title="Payment Products"
+            links={[
+              "Amazon Business Card",
+              "Shop with Points",
+              "Reload Your Balance",
+              "Amazon Currency Converter",
+            ]}
+          />
+          <FooterColumn
+            title="Let Us Help You"
+            links={[
+              "Your Account",
+              "Your Orders",
+              "Shipping Rates & Policies",
+              "Returns & Replacements",
+            ]}
+          />
         </div>
       </div>
 
@@ -71,5 +60,29 @@ export default function Footer() {
         </div>
       </div>
     </footer>
+  );
+}
+
+function FooterColumn({
+  title,
+  links,
+}: {
+  title: string;
+  links: string[];
+}) {
+  return (
+    <div className="text-center sm:text-left">
+      <h4 className="font-bold mb-3 text-base">{title}</h4>
+      <ul className="space-y-2 text-gray-300">
+        {links.map((link) => (
+          <li
+            key={link}
+            className="hover:text-white hover:underline cursor-pointer"
+          >
+            {link}
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }
