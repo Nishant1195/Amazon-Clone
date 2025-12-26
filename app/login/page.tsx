@@ -52,6 +52,15 @@ export default function LoginPage() {
           Continue with Facebook
         </button>
 
+        <button
+          onClick={() => {
+            window.location.href = `${process.env.NEXT_PUBLIC_BASE_URL}/api/auth/linkedin`;
+          }}
+          className="w-full bg-[#0A66C2] hover:bg-[#004182] text-white py-2 rounded text-sm font-semibold transition-colors mt-3"
+        >
+          Continue with LinkedIn
+        </button>
+
         {/* Terms */}
         <p className="text-xs text-gray-600 mt-4 leading-relaxed">
           By continuing, you agree to Amazon Clone’s{" "}
