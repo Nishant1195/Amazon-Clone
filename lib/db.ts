@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import 'dotenv/config'
 
-const URI = process.env.MONGO_URI;
+const URI = process.env.MONGODB_URI;
 
 if(!URI){
     throw new Error("MONGO_URI is not defined!");
