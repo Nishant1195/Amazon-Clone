@@ -13,7 +13,7 @@ export function useAuth(){
     const[loading, setLoading] = useState(true);
 
     useEffect(()=>{
-        fetch("/api/users/me").then(
+        fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/users/me`).then(
             res=>{
                 if(!res.ok) throw new Error("Not logged in");
                 return res.json();
@@ -31,7 +31,7 @@ export function useAuth(){
     }, []);
 
     const logout = async () => {
-        await fetch("/api/auth/logout", {method:"POST"});
+        await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/auth/logout`, {method:"POST"});
         setUser(null)
     }
 
