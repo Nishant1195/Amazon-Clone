@@ -23,7 +23,7 @@ export default function OrdersPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("/api/orders")
+    fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/orders`)
       .then(res => {
         if (res.status === 401) {
           router.push("/login");

@@ -34,7 +34,7 @@ export default function CheckoutPage() {
       setLoading(true);
 
       /* 1️⃣ CREATE RAZORPAY ORDER (YOUR BACKEND) */
-const res = await fetch("/api/payment/order", {
+const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/payment/order`, {
   method: "POST",
   headers: { "Content-Type": "application/json" },
   body: JSON.stringify({
@@ -70,7 +70,7 @@ if (!res.ok) {
 
         handler: async function (response: any) {
           /* 4️⃣ VERIFY PAYMENT + CREATE ORDER */
-          const verifyRes = await fetch("/api/orders/verify", {
+          const verifyRes = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/orders/verify`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
